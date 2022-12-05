@@ -1,23 +1,52 @@
-import logo from './logo.svg';
 import './App.css';
+import bodyguard from './assets/avatar-bodyguard.svg';
+import athlete from './assets/avatar-athlete.svg';
+import Card from './components/Card';
+import { Trans } from '@lingui/macro';
+import { locales } from './localeLoader';
 
-function App() {
+function App({locale, handleLocaleChange}) {
+  const players = [
+    {
+      name: 'Dude Person',
+      image: athlete,
+      levelsPlayed: 5,
+      highScore: 10,
+      lastPlayed: new Date()
+    },
+    {
+      name: 'Other Guyson',
+      image: bodyguard,
+      levelsPlayed: 2,
+      highScore: 0,
+      lastPlayed: new Date()
+    } 
+  ];
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p><Trans>Quiz</Trans></p>
       </header>
+      <div>
+        <h2><Trans>Statistics</Trans></h2>
+          <select value={locale} onChange={ (e) => handleLocaleChange(e.target.value)}>
+            {
+              Object.keys(locales).map(function(localeKey) {
+                return (
+                  <option value={localeKey} key={localeKey}>{locales[localeKey]}</option>
+                );
+              })
+            }
+          </select>
+          {
+            players.map(function(player) {
+              return (
+                <Card player={player} key={player.name}/>
+              );
+            }
+          )}
+      </div>
     </div>
   );
 }

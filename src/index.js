@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+import { i18n } from '@lingui/core'
+import { I18nProvider } from '@lingui/react';
+import { defaultLocale, loadMessage } from './localeLoader';
+
+const I18nApp = () => {
+  function changeLocale(locale) {
+    setCurrentLocale(locale);
+    loadMessage(locale);
+  }
+
+  const [currentLocale, setCurrentLocale] = useState(defaultLocale);
+  useEffect(() => {
+    loadMessage(defaultLocale)
+  }, []);
+
+  return (
+    <React.StrictMode>
+      <I18nProvider i18n={i18n}>
+        <App locale={currentLocale} handleLocaleChange={changeLocale}/>
+      </I18nProvider>
+    </React.StrictMode>
+  );
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+root.render(<I18nApp/>);
