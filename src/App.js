@@ -8,16 +8,16 @@ import { locales } from './localeLoader';
 function App({locale, handleLocaleChange}) {
   const players = [
     {
-      name: 'Dude Person',
+      name: 'PlayerDude01',
       image: athlete,
       levelsPlayed: 5,
       highScore: 10,
       lastPlayed: new Date()
     },
     {
-      name: 'Other Guyson',
+      name: 'QuizMaster',
       image: bodyguard,
-      levelsPlayed: 2,
+      levelsPlayed: 1,
       highScore: 0,
       lastPlayed: new Date()
     } 

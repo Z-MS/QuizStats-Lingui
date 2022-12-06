@@ -1,6 +1,5 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Sample app for a Lingui + React Localization Tutorial
+This repository contains the sample app for the article: "Localization in React with LinguiJS".
 
 ## Available Scripts
 

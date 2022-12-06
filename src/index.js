@@ -15,7 +15,7 @@ const I18nApp = () => {
 
   const [currentLocale, setCurrentLocale] = useState(defaultLocale);
   useEffect(() => {
-    loadMessage(defaultLocale)
+    loadMessage(defaultLocale);
   }, []);
 
   return (
