@@ -1,5 +1,5 @@
 # Sample app for a Lingui + React Localization Tutorial
-This repository contains the sample app for the article: "Localization in React with LinguiJS".
+This repository contains the sample app for the article: "How to Localize JavaScript and React Apps with LinguiJS".
 
 ## Available Scripts
 
